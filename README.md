@@ -17,19 +17,19 @@ The following requirements are necessary to run this project:
    ```
    
 3. Go to the project folder:
- ```bash
-cd book-app-backend
-```
+   ```
+   cd book-app-backend
+   ```
    
 4. Install the required packages:
-   ```bash
-npm install
-```
+   ```
+   npm install
+   ```
 
 5. Run the project commands:
-  ```bash
-npm start
-```
+   ```
+   npm start
+   ```
    
    This command will start the project and run it on http://localhost:3000.
 
