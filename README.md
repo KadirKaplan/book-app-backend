@@ -18,9 +18,9 @@ The following requirements are necessary to run this project:
    cd book-app-backend
 
 3. Install the required packages:
-   ```
-   npm insall
-   ```
+   ```bash
+npm install
+```
 
 5. Run the project commands:
    npm start
