@@ -1,6 +1,7 @@
 import { MongoClient, CreateCollectionOptions, Db, MongoError } from "mongodb";
 import { AppContextType, ConfigType } from "../src/types/configTypes";
-
+import bookValidator from "../src/models/Book";
+import authorValidator from "../src/models/Author";
 const options = {
   keepAlive: true,
   useNewUrlParser: true,
@@ -8,19 +9,29 @@ const options = {
 
 export default async (config: ConfigType): Promise<AppContextType> => {
   const mongoDbConnection = await MongoClient.connect(config.db, options);
+
   const mongoDb = mongoDbConnection.db();
 
-  const bookCollection = await ensureCollection(mongoDb, "book", {});
-
+  const bookCollection = await ensureCollection(mongoDb, "books", {
+    validator: bookValidator,
+  });
   const bookService = await require("../src/services/bookService")({
     bookCollection,
   });
 
+  const authorCollection = await ensureCollection(mongoDb, "authors", {
+    validator: authorValidator,
+  });
+  const authorService = await require("../src/services/authorService")({
+    authorCollection,
+  });
+
   return {
     config,
-    bookService,
     bookCollection,
-
+    bookService,
+    authorCollection,
+    authorService,
     mongoDb,
     mongoDbConnection,
 
@@ -30,7 +41,6 @@ export default async (config: ConfigType): Promise<AppContextType> => {
     },
   };
 };
-
 async function ensureCollection(
   db: Db,
   collectionName: string,

@@ -1,4 +1,5 @@
-import { Collection, Db, MongoClient } from "mongodb";
+import { Auth, Collection, Db, MongoClient } from "mongodb";
+
 import {
   Request,
   Response,
@@ -8,8 +9,9 @@ import {
 } from "express";
 
 import { BookService } from "./bookTypes";
+import { AuthorService } from "./authorTypes";
 
-export type EnvironmentType = "development" | "production";
+export type EnvironmentType = "development";
 export interface ConfigType {
   config: EnvironmentType;
   root: string;
@@ -22,6 +24,8 @@ export interface AppContextType {
   config: ConfigType;
   bookService: BookService;
   bookCollection: Collection;
+  authorService: AuthorService;
+  authorCollection: Collection;
   mongoDb: Db;
   mongoDbConnection: MongoClient;
   closeConnections: () => Promise<void>;

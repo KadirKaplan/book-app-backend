@@ -30,10 +30,7 @@ const test = {
   config: "test",
 };
 
-const config = (
-  environment: "development" | "production",
-  mongoDbUri?: string
-) => {
+const config = (environment: "development", mongoDbUri?: string) => {
   const selectedConfig = {
     development,
 

@@ -40,6 +40,10 @@ export default async (
     "/api/book",
     require("../src/controllers/bookController")(appContext)
   );
+  app.use(
+    "/api/author",
+    require("../src/controllers/authorController")(appContext)
+  );
 
   //response handler, if no middleware handles
   app.use((req, res) => {
