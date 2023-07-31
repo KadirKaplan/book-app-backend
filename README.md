@@ -12,9 +12,9 @@ The following requirements are necessary to run this project:
 # Installation
 
 1. Clone the project:
-   ```bash
-git clone https://github.com/KadirKaplan/book-app-backend.git
-```
+   ```
+   git clone https://github.com/KadirKaplan/book-app-backend.git
+   ```
    
 3. Go to the project folder:
  ```bash
