@@ -18,9 +18,11 @@ The following requirements are necessary to run this project:
    cd book-app-backend
 
 3. Install the required packages:
+   ```
    npm insall
+   ```
 
-4. Run the project commands:
+5. Run the project commands:
    npm start
    This command will start the project and run it on http://localhost:3000.
 
